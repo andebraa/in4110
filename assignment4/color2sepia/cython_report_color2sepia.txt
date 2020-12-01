@@ -1,0 +1,6 @@
+timing: python_color2sepia 
+image dimensions: height: 400, width: 600 
+average run after 3 time(s): 2.8342119057973227 
+This is 3.156574567159017 seconds faster/slower than python method 
+This is -2.8048718770345054 seconds faster/slower than numpy method 
+timed using time

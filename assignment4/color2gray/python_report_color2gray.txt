@@ -1,0 +1,4 @@
+timing: python_color2gray 
+image dimensions: height: 400, width: 600 
+average run after 3 time(s): 2.2595736185709634 
+timed using time

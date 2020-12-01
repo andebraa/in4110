@@ -1,0 +1,18 @@
+-------- run number 0 ------- 
+ 
+random array: 0.0044841766357421875 
+snake_loop: 0.9149181842803955 
+ snack loop: 0.08594322204589844 
+ ['snake_loop'] took the longest time 
+-------- run number 1 ------- 
+ 
+random array: 0.004677534103393555 
+snake_loop: 0.7787134647369385 
+ snack loop: 0.07417678833007812 
+ ['snake_loop'] took the longest time 
+-------- run number 2 ------- 
+ 
+random array: 0.004370450973510742 
+snake_loop: 0.7908670902252197 
+ snack loop: 0.07650947570800781 
+ ['snake_loop'] took the longest time 

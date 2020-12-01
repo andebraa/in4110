@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+import argparse
+import sys
+import cv2
+import instapy.numpy_implementation as implementation
+
+func_call = None
+
+def grayscale_image(input_filename, output_filename=None):
+    img = cv2.imread(input_filename)
+    img = cv2.resize(img, (0, 0), fx=args.scale, fy=args.scale)
+    img = func_call(img)
+    img = img.astype('uint8')
+    if output_filename is not None:
+        cv2.imwrite(output_filename, img)
+    return img
+
+def sepia_image(input_filename, output_filename=None):
+    img = cv2.imread(input_filename)
+    img = cv2.resize(img, (0, 0), fx=args.scale, fy=args.scale)
+    img = func_call(img)
+    img = img.astype('uint8')
+    if output_filename is not None:
+        cv2.imwrite(output_filename, img)
+    return img
+
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument('-f', '--file', required=True, type=str, help="location and name of picture to be augmented")
+parser.add_argument('-se', '--sepia', action='store_true', help="argument for applying sepia filter")
+parser.add_argument('-g', '--gray', action='store_true', help="argument for applying grayscale filter")
+<<<<<<< HEAD
+parser.add_argument('-sc', '--scale', type=float, help="scale percentage to resize image (0 - 100)")
+parser.add_argument('-i', '--implement', type=str, help="choose implementation python, numba, numpy, cython")
+parser.add_argument('-o', '--out', type=str, help="output filename of stored image")
+#parser.add_argument('-st', '--step') #amount of sepia applied
+args=parser.parse_args()
+
+
+if args.implement:
+
+    if args.file and args.sepia: #sepia
+        i = importlib.import_module("instapy."+args.implement+"_implementation", package=__package__)
+        img = i.sepia_image(args.file, args.out)
+
+=======
+parser.add_argument('-sc', '--scale', type=float, default=1, help="scale percentage to resize image (0 - 1)")
+parser.add_argument('-i', '--implement', metavar='{python, numpy, numba, cython}', type=str, help="choose implementation python, numba, numpy, cython")
+parser.add_argument('-o', '--out', type=str, help="output filename of stored image")
+>>>>>>> 39b1e82c7e378e2f4d558665bf52380e24bd16c1
+
+args=parser.parse_args()
+
+if args.sepia and args.gray:
+    print("Can not make grayscale and sepia at the same time")
+    sys.exit()
+
+if not args.sepia and not args.gray:
+    print("Please select grayscale or sepia filter")
+    sys.exit()
+
+img = cv2.imread(args.file)
+if img is None:
+    print("Could not open image")
+    sys.exit()
+
+if args.implement:
+    if args.implement == 'python':
+        import instapy.python_implementation as implementation
+    elif args.implement == 'numpy':
+        pass
+        #import instapy.numpy_implementation as implementation
+    elif args.implement == 'numba':
+        import instapy.numba_implementation as implementation
+    elif args.implement == 'cython':
+        import cython_implementation as implementation
+
+if args.gray:
+    func_call = implementation.grayscale_image
+    grayscale_image(args.file, args.out)
+if args.sepia:
+    func_call = implementation.sepia_image
+    sepia_image(args.file, args.out)

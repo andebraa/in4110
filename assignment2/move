@@ -1,0 +1,32 @@
+#!/bin/bash
+#assignment2 move
+
+#If third CMD line argument is passed it is assumed this is a file extention
+#which limits the types of files transfered
+
+#YYYY-MM-DD-hh-mm
+
+SRC=${1?Error: function takes source and destination inputs}
+DST=${2?Error: function takes source and destination inputs}
+TYPE=${3}
+SOURCE="$SRC/$TYPE"
+
+if [[ ! -d $DST ]]; then
+  date=$(date '+%Y%m%d%H%M')
+  mkdir -p "$DST/../$date"
+fi
+DST="$DST/../$date"
+
+if [[ -d $SRC && -d $DST ]] ; then
+  echo "directories found"
+  if [[ $# == 3 ]] ; then
+    find $SRC -name "$TYPE" -exec mv {} $DST \;
+  else
+    for filename in $SRC/*; do
+      mv $filename $DST
+      #echo "$filename" "$DST \n"
+    done
+  fi
+else
+  echo "directories not found"
+fi

@@ -1,0 +1,26 @@
+-------- run number 0 ------- 
+ 
+random array: 0.004810393002117053 
+snake_loop: 0.7804129780015501 
+ snack loop: 0.07658701299806125 
+ ['snake_loop'] took the longest time 
+-------- run number 1 ------- 
+ 
+random array: 0.004328155999246519 
+snake_loop: 0.7807913509968785 
+ snack loop: 0.07697553899924969 
+ ['snake_loop'] took the longest time 
+-------- run number 2 ------- 
+ 
+random array: 0.0043327530001988634 
+snake_loop: 0.7823638209993078 
+ snack loop: 0.07497885299744667 
+ ['snake_loop'] took the longest time 
+comparing manual and timeit 
+
+random array manual  0.0044841766357421875 
+ random array timeit 0.0043327530001988634 
+snake_loop manual  0.9149181842803955 
+ snake_loop timeit 0.7823638209993078 
+snack_loop manual  0.004677534103393555 
+ snack_loop timeit 0.07497885299744667 

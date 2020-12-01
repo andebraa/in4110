@@ -1,0 +1,6 @@
+timing: numba_color2gray 
+image dimensions: height: 400, width: 600 
+average run after 3 time(s): 0.3467513720194499 
+This is 1.9128222465515134 seconds faster than python method 
+This is also -0.3177906672159831 seconds faster than numpy method 
+timed using time

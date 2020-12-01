@@ -1,0 +1,7 @@
+This is a test file which i will read with wordcount
+
+this document has 
+
+sixteen
+
+words

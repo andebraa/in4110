@@ -1,0 +1,82 @@
+<!-- ./templates/web_base.html -->
+<!--
+HTML for creating base page of website. This will give the user the option
+to choose type of plot, and county.
+-->
+
+<!doctype html>
+<html>
+    <style>
+    body {
+      background-color: coral;
+    }
+    </style>
+    <body>
+        <head>
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"></script>
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+          <!-- Latest compiled and minified CSS -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"\
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" \
+          crossorigin="anonymous">
+        </head>
+        <form action= 'set_values' method = 'POST' >
+          <select name="fylke" id="fylke">
+              <option value="alle_fylker">alle fylker </option>
+              <option value="agder">agder </option>
+              <option value="innlandet">innlandet </option>
+              <option value="møre_og_romsdal"> møre og romsdal </option>
+              <option value="nordland">nordland </option>
+              <option value="oslo">oslo </option>
+              <option value="rogaland">rogaland </option>
+              <option value="troms_og_finnmark">troms og finnmark </option>
+              <option value="trøndelag">trøndelag </option>
+              <option value="vestfold_og_telemark">vestfold og telemark </option>
+              <option value="vestland">vestland </option>
+              <option value="viken">viken </option>
+          </select>
+          <br>
+          <select name='plot_type' id='plot_type'>
+              <option value="cum"> kumulativt antall smittede </option>
+              <option value="daily_cases"> smittede per dag </option>
+              <option value="both"> kumulativt og smittede per dag </option>
+          </select>
+          <select name='range' id='range'>
+              <option value="day"> daglig data</option>
+              <option value="week"> ukentlig data </option>
+          </select>
+          <br>
+          <input type="submit" value="submit">
+          <br>
+          <p><a href="/help">help</a></p>
+          <br>
+          <br>
+          <p><a href="/norway_plot">MAP OF NORWAY</a></p>
+
+        </form>
+
+        <div id="vis"></div>
+  <script>
+
+    (async function(vegaEmbed) {
+      var response = await fetch('figplot?county={{county}}&type={{type}}&range={{range}}');
+      var spec = await response.json();
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+        }
+        const el = document.getElementById('vis');
+        vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+        })(vegaEmbed);
+
+        </script>
+
+    </body>
+</html>

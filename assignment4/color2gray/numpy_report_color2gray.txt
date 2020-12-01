@@ -1,0 +1,5 @@
+timing: numpy_color2gray 
+image dimensions: height: 400, width: 600 
+average run after 3 time(s): 0.028960704803466797 
+This is 2.2306129137674966 seconds faster than python method 
+timed using time

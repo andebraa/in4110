@@ -1,0 +1,7 @@
+timing: python_color2gray 
+image dimensions: height: 400, width: 600 
+average run after 3 time(s): 1.9934362570444744 
+This is 0.26613736152648904 seconds faster/slower than python method 
+This is -1.9644755522410076 seconds faster/slower than numpy method 
+This is -1.6466848850250244 seconds faster/slower than numba method 
+timed using time

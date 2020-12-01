@@ -1,0 +1,44 @@
+random array 
+         3 function calls in 0.004 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.004    0.004    0.004    0.004 {method 'rand' of 'numpy.random.mtrand.RandomState' objects}
+        1    0.000    0.000    0.004    0.004 /home/anders/Documents/in4110/IN3110-andebraa/assignment4/test_slow_rectangle.py:4(random_array)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+
+ snake_loop 
+         5143 function calls in 0.822 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.815    0.815    0.818    0.818 /home/anders/Documents/in4110/IN3110-andebraa/assignment4/test_slow_rectangle.py:27(snake_loop)
+        1    0.004    0.004    0.004    0.004 {method 'rand' of 'numpy.random.mtrand.RandomState' objects}
+        1    0.002    0.002    0.002    0.002 {built-in method numpy.array}
+     5136    0.001    0.000    0.001    0.000 {method 'append' of 'list' objects}
+        1    0.000    0.000    0.004    0.004 /home/anders/Documents/in4110/IN3110-andebraa/assignment4/test_slow_rectangle.py:4(random_array)
+        2    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+
+
+
+ snack loop 
+         5774 function calls in 0.901 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.815    0.815    0.818    0.818 /home/anders/Documents/in4110/IN3110-andebraa/assignment4/test_slow_rectangle.py:27(snake_loop)
+        1    0.078    0.078    0.079    0.079 /home/anders/Documents/in4110/IN3110-andebraa/assignment4/test_slow_rectangle.py:11(loop)
+        1    0.004    0.004    0.004    0.004 {method 'rand' of 'numpy.random.mtrand.RandomState' objects}
+        2    0.003    0.001    0.003    0.001 {built-in method numpy.array}
+     5763    0.001    0.000    0.001    0.000 {method 'append' of 'list' objects}
+        1    0.000    0.000    0.004    0.004 /home/anders/Documents/in4110/IN3110-andebraa/assignment4/test_slow_rectangle.py:4(random_array)
+        3    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+
+
